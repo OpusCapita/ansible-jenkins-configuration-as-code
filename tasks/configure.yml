@@ -21,7 +21,6 @@
     args:
       jcasc_path: "{{ jenkins_casc_config_path }}"
   register: _jenkins_casc_plugin_configure_result
-  failed_when:
   changed_when: (_jenkins_casc_plugin_configure_result.output
                 | regex_replace('\\s*Result:\\s*(.*)\\n*$', '\\1') | from_json).changed
 
